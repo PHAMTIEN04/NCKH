@@ -1,0 +1,29 @@
+Mô hình trong ảnh mô tả cách hoạt động của EDR (Endpoint Detection and Response) trong việc bảo vệ hệ thống khỏi các mối đe dọa an ninh mạng. Dưới đây là giải thích chi tiết từng thành phần và quy trình hoạt động:
+
+End Points (Các điểm cuối)
+
+Đây là các thiết bị đầu cuối như máy tính, điện thoại, máy chủ, v.v., được bảo vệ bởi hệ thống EDR.
+Các thiết bị này gửi dữ liệu hành vi đến hệ thống phân tích để phát hiện các hoạt động đáng ngờ.
+Threat Actor (Tác nhân đe dọa)
+
+Là các đối tượng tấn công (tin tặc, phần mềm độc hại, v.v.), thực hiện các hành vi bất thường trên các điểm cuối.
+Hệ thống EDR theo dõi và ghi nhận các hành vi này theo thời gian thực.
+Database, Big Data, Store, & Machine Learning (Cơ sở dữ liệu, Dữ liệu lớn, Lưu trữ và Học máy)
+
+Đây là trung tâm xử lý của hệ thống EDR.
+Nhận dữ liệu hành vi từ các điểm cuối, sau đó phân tích bằng thuật toán học máy và dữ liệu lớn để phát hiện các dấu hiệu tấn công.
+Cung cấp thông tin và ngữ cảnh về mối đe dọa cho các quản trị viên IT.
+IT Admins & Analysts (Quản trị viên và Nhà phân tích IT)
+
+Nhận thông tin về các mối đe dọa từ hệ thống.
+Thực hiện các biện pháp phản ứng thủ công khi cần thiết để xử lý sự cố.
+Remediation (Khắc phục hậu quả)
+
+Khi phát hiện mối đe dọa, hệ thống có thể tự động kích hoạt các biện pháp khắc phục (Automation) hoặc yêu cầu can thiệp từ quản trị viên IT (Manual).
+Mục tiêu là loại bỏ mối đe dọa và bảo vệ hệ thống.
+Quy trình hoạt động tổng quát của EDR:
+Thu thập dữ liệu hành vi từ các điểm cuối (Endpoints).
+Phân tích và xử lý dữ liệu bằng trí tuệ nhân tạo, máy học và dữ liệu lớn.
+Cung cấp thông tin và ngữ cảnh về mối đe dọa cho quản trị viên IT.
+Thực hiện phản ứng khắc phục một cách tự động hoặc thủ công để ngăn chặn các cuộc tấn công.
+Hệ thống này giúp doanh nghiệp phát hiện và phản ứng nhanh với các mối đe dọa an ninh mạng, giảm thiểu rủi ro và bảo vệ dữ liệu quan trọng.

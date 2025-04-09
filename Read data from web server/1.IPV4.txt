@@ -1,0 +1,20 @@
+sửa trong file /etc/apache2/port.conf
+từ listen 80
+thành Listen 0.0.0.0:80
+Cần bật mod_remoteip để lấy IP thực từ proxy
+sudo a2enmod remoteip
+sau do thêm vào /etc/apache2/apache2.conf
+RemoteIPHeader X-Forwarded-For
+RemoteIPInternalProxy 127.0.0.1
+LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b" forwarded
+
+LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b" remoteip
+CustomLog /var/log/apache2/access.log remoteip
+
+Tìm: LogFormat "%h %l %u %t \"%r\" %>s %b" combined
+thay bằng
+--> LogFormat "%a %l %u %t \"%r\" %>s %b" combined
+sau do restart lai s
+sudo systemctl restart apache2
+
+Lệnh tìm ipv4 + time: sudo tail -f /var/log/apache2/access.log | sed -E 's/^([^ ]+).* \[([^]]+)\].*$/\1 \2/'
