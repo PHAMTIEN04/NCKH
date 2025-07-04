@@ -1,0 +1,9 @@
+- Mo hinh ML phat hien tan cong dos dua vao so lan truy cap (monitor_and_predict_ml)
+- Lấy dữ liệu số lượng ip truy cập lưu vào file dataset.csv
+- Lấy dữ liệu text người dùng lưu vào /var/log/user_data.log
+
+
+-----------------------------------------------------------
+- monitor_and_predict_ml.py chính là file trung tâm, dùng cả dataset.csv và rf_model.pkl.
+- rf_model.pkl chỉ sinh ra 1 lần nếu chưa có (sẽ huấn luyện từ dataset.csv).
+- Khi chạy, script sẽ đọc log /var/log/user_data.log và dự đoán realtime.
