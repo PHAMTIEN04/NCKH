@@ -107,3 +107,6 @@ with open(LOG_FILE, encoding='utf-8', errors='replace') as f:
         else:
             payload_status ="Payload NULL"
         print(f"IP: {ip} | Payload check: {payload_status} | Freq check: {freq_status} ('req_c':{request_count} 'uni_c':{unique_ip_count} 't_req_c':{total_request_in_window}| Payload (30): {payload[:30]}")
+        log_line = f"{datetime.now()}|{ip}|{payload_status}|{freq_status}|{request_count}|{unique_ip_count}|{total_request_in_window}|{payload[:30]}\n"
+        with open("/var/www/html/dashboard_output.txt", "a", encoding="utf-8") as out:
+            out.write(log_line)
